@@ -1,0 +1,7 @@
+Code in the lua folder is available but not automatically executed by the runtime, anything in plugin is executed
+
+init.lua is a special file type where it automatically gets executed/loaded
+
+require() in general, loads a file once and puts it in a table. To re-load a package 
+
+local M = {} # module
