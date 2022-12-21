@@ -1,0 +1,5 @@
+- open the glow.nvim viewer in current window when escape is hit
+- only do the above on markdown files
+- remove the markdown window when entering into insert mode
+- render/ enable links
+- navigate to links, open a new window
