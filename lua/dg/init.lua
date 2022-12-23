@@ -1,4 +1,4 @@
- local win, buf
+local win, buf
 local M = {}
 
 dg_vault_path = ""
@@ -13,30 +13,37 @@ end
 
 M.start = function()
     local curr_buf_ext = string.sub(vim.api.nvim_buf_get_name(0), -3)
-    if curr_buf_ext == dg_opts.dg_opts then
-        M.win()
+    if curr_buf_ext == dg_opts.fext then
+        M.open_window()
     else
         print("not a markdown file")
     end
 end
 
-local function set_path(opts)
+M.set_path = function(opts)
     print("Options: ", opts)
     dg_vault_path = opts.path
     print("path set to: ", dg_vault_path)
 end
 
-local function open_window()
+M.open_window = function()
+    local curr_buf_ext = string.sub(vim.api.nvim_buf_get_name(0), -3)
+    if not (curr_buf_ext == dg_opts.fext) 
+    then
+        print("not a markdown file")
+        return
+    end
+
     local win_width = vim.o.columns
     local win_height = vim.o.lines
 
     local win_opts = {
         style = "minimal",
-        relative = "editor",
+        relative = "win",
         width = win_width,
         height = win_height,
-        --col = win_width,
-        --row = win_height,
+        col = win_width,
+        row = win_height,
     }
 
     buf = vim.api.nvim_create_buf(false, true)
@@ -47,12 +54,13 @@ local function open_window()
     vim.api.nvim_buf_set_option(buf, "filetype", "glowpreview")
 
     local keymap_opts = { noremap = true, silent = true, buffer = buf }
-    vim.keymap.set("n", "q", close_window, keymap_opts)
+    vim.keymap.set("n", "i", M.close_window, keymap_opts)
 
 end
 
-local function close_window()
+M.close_window = function()
     vim.api.nvim_win_close(win, true)
+    vim.cmd(":startinsert")
 end
 
 
