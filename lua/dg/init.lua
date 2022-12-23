@@ -16,7 +16,7 @@ M.start = function()
     if curr_buf_ext == dg_opts.fext then
         M.open_window()
     else
-        print("not a markdown file")
+        print("dragonglass.nvim: not a markdown file")
     end
 end
 
@@ -30,7 +30,6 @@ M.open_window = function()
     local curr_buf_ext = string.sub(vim.api.nvim_buf_get_name(0), -3)
     if not (curr_buf_ext == dg_opts.fext) 
     then
-        print("not a markdown file")
         return
     end
 
