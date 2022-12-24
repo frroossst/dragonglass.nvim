@@ -62,6 +62,14 @@ M.close_window = function()
     vim.cmd(":startinsert")
 end
 
+M.render = function()
+    local curr_file = vim.fn.expand('%')
+    local args = { fargs = {curr_file} }
+
+    print("args.fargs")
+    print(args.fargs)
+    require('glow').execute(args)
+end
 
 
 return M
