@@ -55,6 +55,7 @@ M.open_window = function()
     local keymap_opts = { noremap = true, silent = true, buffer = buf }
     vim.keymap.set("n", "i", M.close_window, keymap_opts)
 
+
 end
 
 M.close_window = function()
@@ -66,8 +67,6 @@ M.render = function()
     local curr_file = vim.fn.expand('%')
     local args = { fargs = {curr_file} }
 
-    print("args.fargs")
-    print(args.fargs)
     require('glow').execute(args)
 end
 
