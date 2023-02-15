@@ -26,6 +26,7 @@ end
 
 -- nnoremap <leader>g :lua M.follow()<CR>
 -- follow link under the cursor
+-- [test link](~/todo.list)
 M.follow = function()
     local under_cursor = vim.fn.expand('<cword>')
     -- local line_no = vim.fn.line('.')
