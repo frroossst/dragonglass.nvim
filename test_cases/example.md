@@ -12,6 +12,8 @@ multi
 line example
 ```
 
+[README]("../README.md")
+
 | First | Second |
 |---|---|
 | 1 | 0 |

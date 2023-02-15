@@ -7,6 +7,13 @@ A obsidian like markdown viewer, editor and linker and an excuse for me to learn
 Powered under the hood by: [glow.nvim](https://github.com/ellisonleao/glow.nvim)
 Also check out: [mkdnflow.nvim](https://github.com/jakewvincent/.nvim)
 
+# Usage
+
+```
+:lua require('dg').render() => renders the current markdown file and opens a preview window
+:lua require('dg').follow() => opens the local file link in a new buffer
+```
+
 # Roadmap
 - Edit and Render markdown
 - Render a clickable local link
