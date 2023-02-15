@@ -12,7 +12,9 @@ multi
 line example
 ```
 
-[README]("../README.md")
+[README](../README.md)
+
+[a different file in the same folder](./another_file.md)
 
 | First | Second |
 |---|---|
