@@ -14,6 +14,8 @@ line example
 
 [README](../README.md)
 
+$$x_1$$
+
 [a different file in the same folder](./another_file.md)
 
 | First | Second |

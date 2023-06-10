@@ -2,6 +2,10 @@ local win, buf
 local M = {}
 
 
+-- test function
+M.hello = function()
+    print('Hello World')
+end
 
 -- nnoremap <Esc> :lua M.render()<CR>
 -- close window from Glow.nvim setup()
@@ -22,8 +26,6 @@ M.render = function()
     vim.cmd(":Glow")
 end
 
-
-
 -- nnoremap <leader>g :lua M.follow()<CR>
 -- follow link under the cursor
 -- [test link](~/todo.list)
@@ -42,6 +44,18 @@ M.follow = function()
     end
     print(link)
     vim.api.nvim_command('edit! ' .. link)
+end
+
+M.showHTML = function()
+    print('called html()')
+    local html_file = io.open('./test_cases/output.html', 'r')
+    local html = html_file:read('*all')
+    html_file:close()
+
+    vim.cmd('silent! new')
+    vim.api.nvim_buf_set_lines(0, 0, -1, false, vim.split(html, '\n'))
+    vim.bo.filetype = 'vue'
+    vim.cmd('normal! gg')
 end
 
 
