@@ -1,4 +1,4 @@
-:warning: Work in Progress!
+:warning: Work in Progress! I am looking for people to help out with this project, please open up an issue if you'd like to collaborate, thanks!
 
 # Introduction
 
